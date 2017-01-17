@@ -5,6 +5,7 @@ Add emotion analysis and face recognition functionality.
 
 ## How to get credentials: 
 You can create and manage your API Keys via your [dashboard](https://developer.kairos.com/admin). It's free to sign-up and start testing.
+
 1. Switch to `APPLICATIONS` endpoint.
 2. Click on **Create New Application** button.
 3. Fill in Application Name and Application Description fields and click on **Create Application** button.
