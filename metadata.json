@@ -1,0 +1,515 @@
+{
+  "package": "KairosAPI",
+  "tagline": "Kairos API Package",
+  "description": "Add emotion analysis and face recognition functionality.",
+  "image": "http://logo.clearbit.com/kairos.com",
+  "keywords": [
+    "API",
+    "face",
+    "facial",
+    "image",
+    "learning",
+    "machine",
+    "neural",
+    "nlr",
+    "recognition",
+    "sentiment",
+    "visual"
+  ],
+  "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-KairosAPI-Package",
+  "accounts": {
+    "domain": "",
+    "credentials": [
+      "appKey",
+      "appId"
+    ]
+  },
+  "blocks": [
+    {
+      "name": "getEmotionalAnalysisAnalytics",
+      "description": "Returns the overall impressions from a specific uploaded piece of media.",
+      "args": [
+        {
+          "name": "appId",
+          "type": "credentials",
+          "info": "Kairos Application ID.",
+          "required": true
+        },
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Kairos Application Key.",
+          "required": true
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "info": "The id of the media.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "createEmotionalAnalysis",
+      "description": "Create a new media object to be processed.",
+      "args": [
+        {
+          "name": "appId",
+          "type": "credentials",
+          "info": "Kairos Application ID.",
+          "required": true
+        },
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Kairos Application Key.",
+          "required": true
+        },
+        {
+          "name": "source",
+          "type": "File",
+          "info": "The source of the media. URL or file upload.",
+          "required": true
+        },
+        {
+          "name": "landmarks",
+          "type": "String",
+          "info": "Set to 1 to receive the feature points, such as eyes, nose, mouth locations, in the JSON response.",
+          "required": false
+        },
+        {
+          "name": "timeout",
+          "type": "String",
+          "info": "Set timeout in seconds to wait for the media to be processed. Default timeout is 10 seconds. Max timeout allowed is 60 seconds.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getEmotionalAnalysis",
+      "description": "Returns the results of a specific uploaded piece of media.",
+      "args": [
+        {
+          "name": "appId",
+          "type": "credentials",
+          "info": "Kairos Application ID.",
+          "required": true
+        },
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Kairos Application Key.",
+          "required": true
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "info": "The id of the media.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "deleteEmotionalAnalysis",
+      "description": "Delete media results. It returns the status of the operation.",
+      "args": [
+        {
+          "name": "appId",
+          "type": "credentials",
+          "info": "Kairos Application ID.",
+          "required": true
+        },
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Kairos Application Key.",
+          "required": true
+        },
+        {
+          "name": "id",
+          "type": "String",
+          "info": "The id of the media.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "addFacesToGallery",
+      "description": "Takes a photo, finds the faces within it, and stores the faces into a gallery you create.",
+      "args": [
+        {
+          "name": "appId",
+          "type": "credentials",
+          "info": "Kairos Application ID.",
+          "required": true
+        },
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Kairos Application Key.",
+          "required": true
+        },
+        {
+          "name": "image",
+          "type": "File",
+          "info": "Publicly accessible URL, Base64 encoded string or File.",
+          "required": true
+        },
+        {
+          "name": "subjectId",
+          "type": "String",
+          "info": "Defined by you. Is used as an identifier for the face.",
+          "required": true
+        },
+        {
+          "name": "galleryName",
+          "type": "String",
+          "info": "Defined by you. Is used to identify the gallery.",
+          "required": true
+        },
+        {
+          "name": "minHeadScale",
+          "type": "String",
+          "info": "Defined by you. Is used to set the ratio of the smallest face we should look for in the photo. Accepts a value between .015 (1:64 scale) and .5 (1:2 scale). By default it is set at .015 (1:64 scale) if not specified.",
+          "required": false
+        },
+        {
+          "name": "multipleFaces",
+          "type": "String",
+          "info": "If set to true, every face found in your photo will be enrolled under the same `subjectId`.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "compareFaces",
+      "description": "Takes a photo, finds the face within it, and tries to compare it against a face you have already enrolled into a gallery.",
+      "args": [
+        {
+          "name": "appId",
+          "type": "credentials",
+          "info": "Kairos Application ID.",
+          "required": true
+        },
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Kairos Application Key.",
+          "required": true
+        },
+        {
+          "name": "image",
+          "type": "File",
+          "info": "Publicly accessible URL, Base64 encoded string or File.",
+          "required": true
+        },
+        {
+          "name": "subjectId",
+          "type": "String",
+          "info": "Defined by you. Is used as an identifier for the face.",
+          "required": true
+        },
+        {
+          "name": "galleryName",
+          "type": "String",
+          "info": "Defined by you. Is used to identify the gallery.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "recognizeFaces",
+      "description": "Takes a photo, finds the faces within it, and tries to match them against the faces you have already enrolled into a gallery.",
+      "args": [
+        {
+          "name": "appId",
+          "type": "credentials",
+          "info": "Kairos Application ID.",
+          "required": true
+        },
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Kairos Application Key.",
+          "required": true
+        },
+        {
+          "name": "image",
+          "type": "File",
+          "info": "Publicly accessible URL, Base64 encoded string or File.",
+          "required": true
+        },
+        {
+          "name": "galleryName",
+          "type": "String",
+          "info": "Defined by you. Is used to identify the gallery.",
+          "required": true
+        },
+        {
+          "name": "minHeadScale",
+          "type": "String",
+          "info": "Defined by you. Is used to set the ratio of the smallest face we should look for in the photo. Accepts a value between .015 (1:64 scale) and .5 (1:2 scale). By default it is set at .015 (1:64 scale) if not specified.",
+          "required": false
+        },
+        {
+          "name": "threshold",
+          "type": "String",
+          "info": "Is used to determine a valid facial match.",
+          "required": false
+        },
+        {
+          "name": "maxNumResults",
+          "type": "String",
+          "info": "Is the maximum number of potential matches that are returned. By default it is set to 10 if not supplied.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "detectFaces",
+      "description": "Takes a photo and returns the facial features it finds.",
+      "args": [
+        {
+          "name": "appId",
+          "type": "credentials",
+          "info": "Kairos Application ID.",
+          "required": true
+        },
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Kairos Application Key.",
+          "required": true
+        },
+        {
+          "name": "image",
+          "type": "File",
+          "info": "Publicly accessible URL, Base64 encoded string or File.",
+          "required": true
+        },
+        {
+          "name": "minHeadScale",
+          "type": "String",
+          "info": "Defined by you. Is used to set the ratio of the smallest face we should look for in the photo. Accepts a value between .015 (1:64 scale) and .5 (1:2 scale). By default it is set at .015 (1:64 scale) if not specified.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getGalleries",
+      "description": "Lists out all of the galleries you have created.",
+      "args": [
+        {
+          "name": "appId",
+          "type": "credentials",
+          "info": "Kairos Application ID.",
+          "required": true
+        },
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Kairos Application Key.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "getSingleGalleryFaces",
+      "description": "Lists out all of the faces you have enrolled in a gallery.",
+      "args": [
+        {
+          "name": "appId",
+          "type": "credentials",
+          "info": "Kairos Application ID.",
+          "required": true
+        },
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Kairos Application Key.",
+          "required": true
+        },
+        {
+          "name": "galleryName",
+          "type": "String",
+          "info": "Defined by you. Is used to identify the gallery.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "deleteSingleGallery",
+      "description": "Removes a gallery and all of its subjects.",
+      "args": [
+        {
+          "name": "appId",
+          "type": "credentials",
+          "info": "Kairos Application ID.",
+          "required": true
+        },
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Kairos Application Key.",
+          "required": true
+        },
+        {
+          "name": "galleryName",
+          "type": "String",
+          "info": "Defined by you. Is used to identify the gallery.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    },
+    {
+      "name": "deleteFaceFromGallery",
+      "description": "Removes a face you have enrolled within a gallery.",
+      "args": [
+        {
+          "name": "appId",
+          "type": "credentials",
+          "info": "Kairos Application ID.",
+          "required": true
+        },
+        {
+          "name": "appKey",
+          "type": "credentials",
+          "info": "Kairos Application Key.",
+          "required": true
+        },
+        {
+          "name": "subjectId",
+          "type": "String",
+          "info": "Defined by you. Is used as an identifier for the face.",
+          "required": true
+        },
+        {
+          "name": "galleryName",
+          "type": "String",
+          "info": "Defined by you. Is used to identify the gallery.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "success",
+          "info": "Success"
+        },
+        {
+          "name": "error",
+          "info": "Error"
+        }
+      ]
+    }
+  ]
+}

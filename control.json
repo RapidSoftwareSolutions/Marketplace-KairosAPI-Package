@@ -1,0 +1,123 @@
+{
+    "getEmotionalAnalysisAnalytics": {
+        "url": "https://api.kairos.com/v2/analytics/:id",
+        "method": "GET",
+        "args": {
+            "String|appId": "$!appId",
+            "String|appKey": "$!appKey",
+            "String|id": "$!id"
+        }
+    },
+    "createEmotionalAnalysis": {
+        "url": "https://api.kairos.com/v2/media?source=:source",
+        "method": "POST",
+        "args": {
+            "String|appId": "$!appId",
+            "String|appKey": "$!appKey",
+            "File|source": "$!source",
+            "String|landmarks": "landmarks",
+            "String|timeout": "timeout"
+        }
+    },
+    "getEmotionalAnalysis": {
+        "url": "https://api.kairos.com/v2/media/:id",
+        "method": "GET",
+        "args": {
+            "String|appId": "$!appId",
+            "String|appKey": "$!appKey",
+            "String|id": "$!id"
+        }
+    },
+    "deleteEmotionalAnalysis": {
+        "url": "https://api.kairos.com/v2/media/:id",
+        "method": "DELETE",
+        "args": {
+            "String|appId": "$!appId",
+            "String|appKey": "$!appKey",
+            "String|id": "$!id"
+        }
+    },
+    "addFacesToGallery": {
+        "url": "https://api.kairos.com/enroll",
+        "method": "POST",
+        "args": {
+            "String|appId": "$!appId",
+            "String|appKey": "$!appKey",
+            "File|image": "$image",
+            "String|subjectId": "$subject_id",
+            "String|galleryName": "$gallery_name",
+            "String|minHeadScale": "minHeadScale",
+            "String|multipleFaces": "multiple_faces"
+        }
+    },
+    "compareFaces": {
+        "url": "https://api.kairos.com/verify",
+        "method": "POST",
+        "args": {
+            "String|appId": "$!appId",
+            "String|appKey": "$!appKey",
+            "File|image": "$image",
+            "String|subjectId": "$subject_id",
+            "String|galleryName": "$gallery_name"
+        }
+    },
+    "recognizeFaces": {
+        "url": "https://api.kairos.com/recognize",
+        "method": "POST",
+        "args": {
+            "String|appId": "$!appId",
+            "String|appKey": "$!appKey",
+            "File|image": "$image",
+            "String|galleryName": "$gallery_name",
+            "String|minHeadScale": "minHeadScale",
+            "String|threshold": "threshold",
+            "String|maxNumResults": "max_num_results"
+        }
+    },
+    "detectFaces": {
+        "url": "https://api.kairos.com/detect",
+        "method": "POST",
+        "args": {
+            "String|appId": "$!appId",
+            "String|appKey": "$!appKey",
+            "File|image": "$image",
+            "String|minHeadScale": "minHeadScale"
+        }
+    },
+    "getGalleries": {
+        "url": "https://api.kairos.com/gallery/list_all",
+        "method": "POST",
+        "args": {
+            "String|appId": "$!appId",
+            "String|appKey": "$!appKey"
+        }
+    },
+    "getSingleGalleryFaces": {
+        "url": "https://api.kairos.com/gallery/view",
+        "method": "POST",
+        "args": {
+            "String|appId": "$!appId",
+            "String|appKey": "$!appKey",
+            "String|galleryName": "$gallery_name"
+        }
+    },
+    "deleteSingleGallery": {
+        "url": "https://api.kairos.com/gallery/remove",
+        "method": "POST",
+        "args": {
+            "String|appId": "$!appId",
+            "String|appKey": "$!appKey",
+            "String|galleryName": "$gallery_name"
+        }
+    },
+    "deleteFaceFromGallery": {
+        "url": "https://api.kairos.com/gallery/remove_subject",
+        "method": "POST",
+        "args": {
+            "String|appId": "$!appId",
+            "String|appKey": "$!appKey",
+            "String|subjectId": "$subject_id",
+            "String|galleryName": "$gallery_name"
+        }
+    }
+}
