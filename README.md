@@ -1,6 +1,5 @@
 # KairosAPI Package
 Add emotion analysis and face recognition functionality.
-* Domain: 
 * Credentials: appKey, appId
 
 ## How to get credentials: 

@@ -18,7 +18,7 @@
   ],
   "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-KairosAPI-Package",
   "accounts": {
-    "domain": "",
+    "domain": "kairos.com",
     "credentials": [
       "appKey",
       "appId"
