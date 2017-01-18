@@ -9,7 +9,6 @@ const express       = require('express'),
     _               = lib.callback;
 
 const PORT          = process.env.PORT || 8080;
-const API           = lib.init();
 const app           = express();
 
 let mfile = fs.readFileSync('./metadata.json', 'utf-8'),
