@@ -1,3 +1,5 @@
+[![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/KairosAPI/functions?utm_source=RapidAPIGitHub_KairosFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
+
 # KairosAPI Package
 Add emotion analysis and face recognition functionality.
 * Credentials: appKey, appId
